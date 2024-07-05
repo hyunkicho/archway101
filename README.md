@@ -1,17 +1,54 @@
 # archway101
 archway101
 
+Hello everyone, following the last video, this time we will practice issuing, sending, and checking NFTs through archway. For archway, we provide separate CLI commands so that you can easily deploy NFTs on Cosmos Chain, and I think it will be very helpful for those who are learning for the first time. This lecture is not financial advice, it's just a lecture to help you start developing on archway chain technically.
+
+
+This lecture is based on Archway's main documentation, so if you want to do more hands-on exercises, we recommend that you go to the official Archway documentation in the comments.
+
+
+So let's get started with the lesson.
+
+
 # Setup
 
 ## Prerequisite
 https://docs.archway.io/developers/getting-started/install
 
-- https://www.rust-lang.org/tools/install
+First, you'll need to visit the sites below to download the necessary programs.
+
+
+- Installation
+To get started developing on the Archway Network, you will need to have the the following dependencies installed.
+
+- Dependencies
+  - Required
+  - Rustc
+  - Cargo
+  - Cargo Generate
+  - Node.js and NPM
+  - Archway Developer CLI
+  - Docker
+- Optional
+  - Archwayd
+
+https://www.rust-lang.org/tools/install
+
+
+Rustc
+rustc, provided by the Rust project maintainers, is the compiler for the Rust programming language. rustc takes your Rust source code and produces binary code as a library or an executable.
+To install Rust, follow the instructions for your operating system here.
+https://www.rust-lang.org/tools/install
 
 - install rust with rustup
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
+
+Cargo is the Rust package manager, like go get is for Golang or npm is for JavaScript. Cargo comes with Rust if you installed rustc using rustup.
+If you did not already install rustc with rustup, or don't have cargo in your command line path, see the instructions for installing Cargo here.
+https://doc.rust-lang.org/cargo/getting-started/installation.html
+
 - install rust with cargo
 ```
 curl https://sh.rustup.rs -sSf | sh
@@ -23,7 +60,25 @@ cargo install cargo-run-script
 ```
 
 ## Setting up IDE for cosmwasm
+
+I will recomment you 2 visual code extenstion for developing in cosmwasm.
+
+- Rust-analyzer
+The rust-analyzer extension is a language server for the Rust programming language, which provides features such as code completion, error checking, and documentation while writing Rust code in VS Code.
+Follow these steps to install the extension:
+Go to the Extension panel
+In the Search field enter rust-analyzer
+Click the install button to the bottom right of rust-analyzer
+
+- CodeLLDB
+The CodeLLDB extension is a native debugger used for debugging Rust and other compiled languages.
+Follow these steps to install the extension:
+Go to the Extension panel
+In the Search field enter CodeLLDB
+Click the install button to the bottom right of CodeLLDB
+
 https://docs.archway.io/developers/getting-started/ide-setup
+
 
 ## install archway developer CLI
 https://docs.archway.io/developers/getting-started/install
@@ -31,13 +86,28 @@ https://docs.archway.io/developers/getting-started/install
 npm install -g @archwayhq/cli
 ```
 
+## install Docker
+
+Docker
+Docker is required for the Archway Developer CLI to use the rust optimizer. You can use Docker Desktop or Docker Engine.
+I will use Docker Desktop in this video
+https://docs.docker.com/get-docker/
+
+
 ## wallet cli
+from now on we will start developing in archway with archway cli 
+there are plenty of functions in arcway Developer CLI wich we had installed.
+
+you can also check cli commands in this link
 https://www.npmjs.com/package/@archwayhq/cli/v/2.0.2
 
+If you want to use existing account you could use this command
 - use existing account
 ```
 archway accounts new deployer --recover
 ```
+
+but we will make new account in this video
 
 - make new account
 ```
@@ -46,6 +116,8 @@ archway accounts new
 //struggle alert sunny joke during side reopen silly soul collect yard crouch rookie version know casual divorce jewel onion found proud write foot pioneer
 ```
 
+now you have made an accounts.
+Let's checkout account list.
 ```
 archway accounts list
 
@@ -54,15 +126,28 @@ Address: archway1a8k9rf2ql98wgu5j955j9mucrk3w6salpzrddz
 ```
 
 ## getting testnet token
+
+In order to make transactions in archway you need testnet token.
+there are archway test token faucet in below link.
+what you need is just discord id.
+if you don't have one you could make it with your email.
+lot of crpyto projects use discrod so I reccomend you to make one if u don't have it.
+
 https://docs.archway.io/developers/guides/faucet
 
-join discord server
+
+join discord server and type like below.
+you should get testnet token to test in the accounts you typed in this command.
 
 ```
 !faucet archway1pdl88mh90dp4xeewna75shn774qxq7u2ez765p
 ```
 
 ## checking cli commands with help
+So now we are ready. lets checkout what we could do with archway developer CLI.
+
+If you need guide you could see this with --help
+
 ```
 archway --help
 @archwayhq/cli/2.1.0 darwin-arm64 node-v18.18.1
@@ -111,9 +196,18 @@ rewards
 ```
 
 # Nft project guide
+So what we will do today is make our own nft in archway testnet
+You could also see the guide below. cause we are following this guide.
+I reccomend you to look around officail guide line cause there are plenty of good education resources and examples.
+
 https://docs.archway.io/developers/guides/nft-project/start
 
 ## STEP01. Build and optimize contracts
+step 1 is to build and opitmize contracts.
+you should select a chain and project name here.
+In this video I will make project name as basic-nft.
+Also you could use your own projcet name in here.
+
 ```
 $ archway new basic-nft✔ Select a chain to use › Archway Testnet
 ✔ Choose a name for your contract … basic-nft✔ Choose a starter template 
@@ -127,6 +221,7 @@ Done! New project created /Users/testuser/basic-nft
 ```
 
 ## STEP02. Designing tokens
+Step 2 is desinging tokens.
 The asset metadata is a critical element for any NFT. It defines information like the name, image URL, and other properties that can be pulled by NFT marketplaces to show relevant information to the users. Information like rarity, custom traits, etc., are all stored here.
 In this example, we will keep our metadata on-chain. In other words, the contract will store the metadata in its internal state.
 In the cw721-base code, NFT metadata is contained in the extension property of the TokenInfo struct:
