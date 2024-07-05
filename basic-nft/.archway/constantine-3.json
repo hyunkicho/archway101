@@ -1,0 +1,70 @@
+{
+  "deployments": [
+    {
+      "action": "premium",
+      "txhash": "269372B5F02E8561B37C2AB99E748A9CCF4DA744F9DF773DF68CD262525BA0D8",
+      "wasm": {
+        "codeId": 3186
+      },
+      "contract": {
+        "name": "testnft",
+        "version": "0.1.0",
+        "address": "archway1tf629qemlglefs2g8c2hurds8xrwt3wp728ehmts3cv6jaz4xjdqdvn2lg",
+        "admin": "archway1a8k9rf2ql98wgu5j955j9mucrk3w6salpzrddz"
+      },
+      "flatFee": {
+        "denom": "aconst",
+        "amount": "1000000000000000000"
+      }
+    },
+    {
+      "action": "metadata",
+      "txhash": "EB33F4C89ECE0F73EC3A1C06B689FF052A5B7800CA6EB3D78FED1691744EAC24",
+      "wasm": {
+        "codeId": 3186
+      },
+      "contract": {
+        "name": "testnft",
+        "version": "0.1.0",
+        "address": "archway1tf629qemlglefs2g8c2hurds8xrwt3wp728ehmts3cv6jaz4xjdqdvn2lg",
+        "admin": "archway1a8k9rf2ql98wgu5j955j9mucrk3w6salpzrddz"
+      },
+      "metadata": {
+        "contractAddress": "archway1tf629qemlglefs2g8c2hurds8xrwt3wp728ehmts3cv6jaz4xjdqdvn2lg",
+        "ownerAddress": "archway1a8k9rf2ql98wgu5j955j9mucrk3w6salpzrddz",
+        "rewardsAddress": "archway1pdl88mh90dp4xeewna75shn774qxq7u2ez765p",
+        "withdrawToWallet": true
+      }
+    },
+    {
+      "action": "instantiate",
+      "txhash": "6970F74960835F192D964102A51DF125914083D3415F67AD9C7683AA914539DF",
+      "wasm": {
+        "codeId": 3186
+      },
+      "contract": {
+        "name": "testnft",
+        "version": "0.1.0",
+        "address": "archway1tf629qemlglefs2g8c2hurds8xrwt3wp728ehmts3cv6jaz4xjdqdvn2lg",
+        "admin": "archway1a8k9rf2ql98wgu5j955j9mucrk3w6salpzrddz"
+      },
+      "msg": {
+        "name": "All about Archway",
+        "symbol": "AAA",
+        "minter": "archway1a8k9rf2ql98wgu5j955j9mucrk3w6salpzrddz"
+      }
+    },
+    {
+      "action": "store",
+      "txhash": "504433E1F8CD80000D5C9A39E3A4949EAF4A30141136014659A822F2AB084821",
+      "wasm": {
+        "codeId": 3186,
+        "checksum": "172ba636995e8c517f1a621db17635e3b249925d474f8d9d40162f5589922bad"
+      },
+      "contract": {
+        "name": "testnft",
+        "version": "0.1.0"
+      }
+    }
+  ]
+}
